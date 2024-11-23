@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(detection_obstacle)
+project(detection_obstacle_pkg)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -35,15 +35,15 @@ install(TARGETS
 )
 
 # Python scripts installation
-install(PROGRAMS scripts/minimal_opencv_subscriber.py
+install(PROGRAMS scripts/detection_obstacle_node.py
 DESTINATION lib/${PROJECT_NAME})
 
 install(PROGRAMS scripts/opencv_decoder.py
 DESTINATION lib/${PROJECT_NAME})
 
 ament_python_install_package(
-  detection_obstacle
-  PACKAGE_DIR src/detection_obstacle
+  detection_obstacle_pkg
+  PACKAGE_DIR src/detection_obstacle_pkg
 )
 
 ament_package()
