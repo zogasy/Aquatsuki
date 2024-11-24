@@ -1,5 +1,5 @@
-#ifndef __PTU_CONTROL_HPP
-#define __PTU_CONTROL_HPP
+#ifndef __PROJECTION_HPP
+#define __PROJECTION_HPP
 
 #include <rclcpp/rclcpp.hpp>
 #include <iostream>
