@@ -1,0 +1,10 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/zo/Aquabot/ros_ws/install/local/lib/python3.10/dist-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/zo/Aquabot/ros_ws/install/local/lib/python3.10/dist-packages",
+        "/opt/ros/jazzy/lib/python3.12/site-packages"
+    ]
+}

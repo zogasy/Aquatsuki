@@ -1,0 +1,12 @@
+# Dossier de configuration utilisateur de VS Code
+.vscode/
+
+# Fichiers spécifiques à MacOS
+.DS_Store
+
+# Fichiers générés par le système d'exploitation
+Thumbs.db
+
+# Fichiers de sauvegarde temporaires
+*.swp
+*.tmp
