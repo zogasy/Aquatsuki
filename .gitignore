@@ -10,3 +10,4 @@ Thumbs.db
 # Fichiers de sauvegarde temporaires
 *.swp
 *.tmp
+*.json
