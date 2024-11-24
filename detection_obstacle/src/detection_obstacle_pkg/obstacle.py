@@ -41,3 +41,30 @@ class Obstacle:
                 # Dessiner le contour
                 cv2.drawContours(image, [cnt], -1, (0, 255, 0), 2)
         return image
+    
+    def measure_obstacle_width(self, contour, image):
+        """
+        Mesure la largeur de l'obstacle (plus grand côté du rectangle) et dessine le rectangle autour.
+
+        :param contour: Contour de l'obstacle à analyser
+        :param image: Image dans laquelle dessiner le rectangle
+        :return: Largeur de l'obstacle et image avec le rectangle dessiné
+        """
+        # Vérifier si le contour est valide
+        if len(contour) >= 5:  
+            # Calculer le rectangle minimal qui entoure le contour
+            rect = cv2.minAreaRect(contour)
+            
+            # Obtenir les dimensions du rectangle
+            (width, height) = rect[1]  # width est la largeur et height est la hauteur
+
+            # Dessiner le rectangle sur l'image
+            box_points = cv2.boxPoints(rect)
+            box_points = np.int0(box_points)  # Convertir les points en entiers
+            cv2.drawContours(image, [box_points], 0, (0, 0, 255), 2)  # Dessiner le rectangle en rouge
+
+            return max(width, height), image
+        else:
+            return 0, image  # Si le contour est trop petit, retourner 0 comme largeur et l'image sans modification
+    
+
