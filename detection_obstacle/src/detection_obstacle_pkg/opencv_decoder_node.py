@@ -28,7 +28,7 @@ class OpenCvDecoder(Node):
     def image_callback(self, msg):
         # Convert ROS Image message to OpenCV image
         current_frame = self.br.imgmsg_to_cv2(msg)
-
+        
         # Decode image
         data,bbox,rectifiedImage = self.qr_decoder.detectAndDecode(current_frame)
 

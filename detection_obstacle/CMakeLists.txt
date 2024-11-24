@@ -13,6 +13,8 @@ find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(tf2_ros)
+find_package(tf2)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -28,6 +30,14 @@ endif()
 
 add_executable(minimal_opencv_ros2_node src/minimal_opencv_ros2_node.cpp)
 ament_target_dependencies(minimal_opencv_ros2_node rclcpp std_msgs sensor_msgs cv_bridge image_transport OpenCV)
+
+
+add_executable(yaw_publisher_node src/yaw_publisher.cpp)
+ament_target_dependencies(yaw_publisher_node rclcpp std_msgs sensor_msgs tf2 tf2_ros) 
+
+install(TARGETS yaw_publisher_node
+  DESTINATION lib/${PROJECT_NAME})
+
 
 install(TARGETS
    minimal_opencv_ros2_node

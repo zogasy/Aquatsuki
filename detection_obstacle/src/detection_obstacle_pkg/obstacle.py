@@ -8,6 +8,7 @@ class Obstacle:
         """
         self.bas_gris = np.array([0, 0, 50])     # H = 0, S = 0 (faible saturation), V minimum pour éviter le noir
         self.haut_gris = np.array([50, 50, 200])
+        
 
     def detect(self, image):
         """
@@ -54,11 +55,10 @@ class Obstacle:
         if len(contour) >= 5:  
             # Calculer le rectangle minimal qui entoure le contour
             rect = cv2.minAreaRect(contour)
-            
-            # Obtenir les dimensions du rectangle
-            (width, height) = rect[1]  # width est la largeur et height est la hauteur
+        
+            (width, height) = rect[1]  
 
-            # Dessiner le rectangle sur l'image
+            # Dessin sur l'image
             box_points = cv2.boxPoints(rect)
             box_points = np.int0(box_points)  # Convertir les points en entiers
             cv2.drawContours(image, [box_points], 0, (0, 0, 255), 2)  # Dessiner le rectangle en rouge
